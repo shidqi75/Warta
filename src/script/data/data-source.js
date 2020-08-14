@@ -1,14 +1,5 @@
 import Dummy from "../data/dummy-data.json";
 
-// const categories = [
-//     "business",
-//     "entertainment",
-//     "health",
-//     "science",
-//     "sports",
-//     "technology",
-// ];
-
 const baseUrl = "https://newsapi.org/v2";
 
 class DataSource {

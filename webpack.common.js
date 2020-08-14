@@ -1,12 +1,8 @@
 const path = require("path");
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: [
-        "./src/index.js",
-        // "font-awesome/scss/font-awesome.scss"
-    ],
+    entry: ["./src/index.js"],
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js",
@@ -42,25 +38,14 @@ module.exports = {
                     "image-webpack-loader?bypassOnDebug",
                 ],
             },
-            // {
-            //     test: /font-awesome\.config\.js/,
-            //     use: [
-            //         { loader: "style-loader" },
-            //         { loader: "font-awesome-loader" },
-            //     ],
-            // },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            favicon: "./src/assets/images/favicon.png",
+            favicon: "./src/assets/images/logo.png",
             template: "./src/index.html",
             filename: "index.html",
             minify: "production",
-        }),
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
         }),
     ],
 };

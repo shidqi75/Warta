@@ -5,11 +5,7 @@ class PageHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
         <style>
-            .text-muted{
-            color: white !important;
-            }
-
-            .page-header {
+            .header-content {
                 background-color: #0e1013;
                 line-height: 1;
                 padding: 2rem;
@@ -20,7 +16,7 @@ class PageHeader extends HTMLElement {
                 flex-direction: row;
             }
 
-            .page-header-logo {
+            .page-logo {
                 font-family: "Playfair Display", Georgia, "Times New Roman", serif;
                 font-size: 3rem;
                 flex-basis: 30%;
@@ -31,7 +27,7 @@ class PageHeader extends HTMLElement {
                 flex-basis: 60%;
             }
 
-            .page-header-logo:hover {
+            .page-logo:hover {
                 text-decoration: none;
             }
 
@@ -39,19 +35,19 @@ class PageHeader extends HTMLElement {
                 .header-container{
                 flex-direction: column;
                 }
-                .page-header-logo {
+                .page-logo {
                 margin-bottom: 1rem;
                 }
             }
         </style>
         
-        <header class="page-header">
+        <div class="header-content">
             <div class="header-container">
-                <a class="page-header-logo text-muted" href="#">Warta</a>
+                <a class="page-logo text-white" href="#">Warta</a>
                 <search-bar></search-bar>
             </div>
             <header-navigation></header-navigation>
-        </header>`;
+        </div>`;
     }
 }
 

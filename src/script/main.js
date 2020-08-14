@@ -3,16 +3,16 @@ import "./component/news-list.js";
 import DataSource from "./data/data-source.js";
 
 const main = () => {
-    const searchElement = document.querySelector("search-bar");
-    const newsListElement = document.querySelector("news-list");
-    const loaderElement = document.querySelector("#loader-text");
+    const searchBar = document.querySelector("search-bar");
+    const newsList = document.querySelector("news-list");
+    const pageLoader = document.querySelector(".loader");
 
     const onButtonSearchClicked = () => {
-        if (searchElement.value != "") searchNews(searchElement.value);
+        if (searchBar.value != "") searchNews(searchBar.value);
     };
 
     const headlineNews = async () => {
-        loaderElement.style.display = "block";
+        pageLoader.style.display = "block";
         try {
             const result = await DataSource.headlineNews();
             renderResult(result);
@@ -22,7 +22,7 @@ const main = () => {
     };
 
     const searchNews = async (keyword) => {
-        loaderElement.style.display = "block";
+        pageLoader.style.display = "block";
         try {
             const result = await DataSource.searchNews(keyword);
             renderResult(result);
@@ -32,7 +32,7 @@ const main = () => {
     };
 
     const categoryNews = async (category) => {
-        loaderElement.style.display = "block";
+        pageLoader.style.display = "block";
         try {
             const result = await DataSource.categoryNews(category);
             renderResult(result);
@@ -42,27 +42,18 @@ const main = () => {
     };
 
     const renderResult = (results) => {
-        loaderElement.style.display = "none";
-        newsListElement.news = results;
+        pageLoader.style.display = "none";
+        newsList.news = results;
     };
 
     const fallbackResult = (message) => {
-        loaderElement.style.display = "none";
-        newsListElement.renderError(message);
+        pageLoader.style.display = "none";
+        newsList.renderError(message);
     };
 
     headlineNews();
 
-    searchElement.clickEvent = onButtonSearchClicked;
-
-    // const categories = [
-    //     "business",
-    //     "entertainment",
-    //     "health",
-    //     "science",
-    //     "sports",
-    //     "technology",
-    // ];
+    searchBar.clickEvent = onButtonSearchClicked;
 
     const navLink = document.querySelectorAll(".category");
     navLink.forEach((item) => {
@@ -71,20 +62,6 @@ const main = () => {
             categoryNews(category);
         });
     });
-
-    //    // Get the input field
-    //    var input = document.getElementById("myInput");
-
-    //    // Execute a function when the user releases a key on the keyboard
-    //    input.addEventListener("keyup", function (event) {
-    //        // Number 13 is the "Enter" key on the keyboard
-    //        if (event.keyCode === 13) {
-    //            // Cancel the default action, if needed
-    //            event.preventDefault();
-    //            // Trigger the button element with a click
-    //            document.getElementById("myBtn").click();
-    //        }
-    //    });
 };
 
 export default main;
