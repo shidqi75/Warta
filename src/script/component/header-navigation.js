@@ -4,10 +4,8 @@ class HeaderNavigation extends HTMLElement {
         <style>
 
             .nav-scroller {
-            position: relative;
             z-index: 2;
             height: 2.75rem;
-            overflow-y: hidden;
             border-bottom: 1px solid #e5e5e5;
             }
 
@@ -31,7 +29,7 @@ class HeaderNavigation extends HTMLElement {
             }
         </style>
 
-        <div class="nav-scroller py-1 mt-3 mb-2">
+        <div class="nav-scroller sticky-top py-1 mt-3 mb-2">
             <nav class="nav d-flex justify-content-between">
                 <a class="p-2 text-white category" href="#">Business</a>
                 <a class="p-2 text-white category" href="#">Entertainment</a>
