@@ -1,26 +1,20 @@
-import Dummy from "../data/dummy-data.json";
-
 const baseUrl = "https://newsapi.org/v2";
 
 class DataSource {
-    // static headlineNews() {
-    //     return fetch(
-    //         `${baseUrl}/top-headlines?country=id&pageSize=24&apiKey=87ef1a15763d4ba084be4e2097d2a7ff`
-    //     )
-    //         .then((response) => {
-    //             return response.json();
-    //         })
-    //         .then((responseJson) => {
-    //             if (responseJson.status === "ok") {
-    //                 return Promise.resolve(responseJson.articles);
-    //             } else {
-    //                 return Promise.reject(`News is not found`);
-    //             }
-    //         });
-    // }
-
     static headlineNews() {
-        return Dummy;
+        return fetch(
+            `${baseUrl}/top-headlines?country=id&pageSize=24&apiKey=87ef1a15763d4ba084be4e2097d2a7ff`
+        )
+            .then((response) => {
+                return response.json();
+            })
+            .then((responseJson) => {
+                if (responseJson.status === "ok") {
+                    return Promise.resolve(responseJson.articles);
+                } else {
+                    return Promise.reject(`News is not found`);
+                }
+            });
     }
 
     static searchNews(keyword) {

@@ -8,6 +8,8 @@ class NewsItem extends HTMLElement {
 
     render() {
         if (this._item.author == null) this._item.author = "Anonym";
+        if (this._item.title == null) this._item.title = " ";
+        if (this._item.description == null) this._item.description = " ";
 
         this.innerHTML = `
             <style>
